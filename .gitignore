@@ -3,6 +3,8 @@ __pycache__/
 *.py[codz]
 *$py.class
 
+.env
+
 # C extensions
 *.so
 
@@ -156,6 +158,9 @@ venv/
 ENV/
 env.bak/
 venv.bak/
+
+# ChromaDB
+.chroma/
 
 # Spyder project settings
 .spyderproject
