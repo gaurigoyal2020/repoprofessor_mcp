@@ -6,6 +6,8 @@ from src.tools.analyze import (
     trace_execution_flow,
     identify_design_patterns,
 )
+from src.tools.teach import explain_like_senior, generate_learning_path
+from src.tools.docs import generate_documentation
 
 mcp = FastMCP(
     name="RepoProfessor",
@@ -76,6 +78,40 @@ def find_design_patterns(focus_area: str = "") -> dict:
         focus_area: Optional area to focus on. Leave empty to scan all.
     """
     return identify_design_patterns(focus_area)
+
+@mcp.tool()
+def explain_concept_like_senior(concept: str) -> dict:
+    """
+    Explain a concept from the repo like a senior engineer onboarding a junior.
+    Covers WHY decisions were made, tradeoffs, and alternative approaches.
+    Goes beyond what the code does to why it was built this way.
+
+    Args:
+        concept: The concept, component, or question to explain.
+    """
+    return explain_like_senior(concept)
+
+
+@mcp.tool()
+def get_learning_path(level: str = "beginner") -> dict:
+    """
+    Generate a structured learning roadmap for understanding this repository.
+    
+    Args:
+        level: 'beginner', 'intermediate', or 'advanced'
+    """
+    return generate_learning_path(level)
+
+
+@mcp.tool()
+def generate_repo_documentation(doc_type: str = "readme") -> dict:
+    """
+    Generate structured documentation for the repository.
+    
+    Args:
+        doc_type: 'readme', 'architecture', or 'contributing'
+    """
+    return generate_documentation(doc_type)
 
 
 if __name__ == "__main__":
