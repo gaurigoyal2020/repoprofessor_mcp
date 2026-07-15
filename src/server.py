@@ -115,4 +115,4 @@ def generate_repo_documentation(doc_type: str = "readme") -> dict:
 
 
 if __name__ == "__main__":
-    mcp.run()
+    mcp.run(show_banner=False)

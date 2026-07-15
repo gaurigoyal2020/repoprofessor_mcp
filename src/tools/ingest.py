@@ -2,8 +2,9 @@ from src.parser.scanner import scan_and_chunk
 from src.embedder.embedder import embed_texts
 from src.store.store import save_chunks, clear_collection
 from rich.console import Console
+import sys
 
-console = Console()
+console = Console(file=sys.stderr)
 
 
 def ingest_repo(repo_path: str, clear_existing: bool = True) -> dict:
